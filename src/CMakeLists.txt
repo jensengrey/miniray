@@ -1,6 +1,6 @@
 set(RAYTRACERS_CPP
-  miniray_0.1
-  miniray_0.2
+	# miniray_0.1
+	# miniray_0.2
   miniray_0.3
   miniray_0.4
   miniray_0.5
@@ -43,6 +43,7 @@ endforeach()
 
 foreach(RAYTRACER_C ${RAYTRACERS_C})
   add_executable(${RAYTRACER_C} "${RAYTRACER_C}.c")
+  target_link_libraries(${RAYTRACER_C} m)
 endforeach()
 
 add_custom_target(ppm_images)
@@ -57,4 +58,4 @@ foreach(RAYTRACER ${RAYTRACERS})
   add_dependencies(ppm_images ${RAYTRACER}_image)
 endforeach()
 
-add_executable(encode "encode.cpp")
+# add_executable(encode "encode.cpp")
